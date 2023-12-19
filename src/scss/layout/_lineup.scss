@@ -1,0 +1,81 @@
+@use "base/mixins" as m;
+@use "base/variable" as v;
+
+.lineup {
+  background-color: v.$rosa;
+  padding: 2.5rem 0;
+
+  h3,
+  p {
+    text-align: center;
+    color: v.$blanco;
+  }
+
+  .dia {
+    text-transform: uppercase;
+    margin:2rem;
+  }
+}
+
+.escenarios-contendor {
+  @include m.tablet {
+    @include m.grid(2, 2rem);
+  }
+
+  p {
+    color: v.$negro;
+  }
+}
+
+.escenario {
+  padding-top: 1rem;
+
+  p {
+    &::after {
+      content: "";
+      display: block;
+      width: 15rem;
+      height: 9rem;
+      margin: 1rem auto 0 auto;
+      background-size: 15rem;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.rock .nombre-escenario::after{
+    background-image: url(../img/icono_rock.png);
+}
+
+.edm .nombre-escenario::after{
+    background-image: url(../img/icono_edm.png);
+}
+
+.calendario{
+    @include m.resetear-lista;
+    
+    li{
+        padding: 1.5rem;
+        font-weight: 700;
+
+        span{
+            font-weight: 400;
+        }
+    }
+}
+
+.bg-amarillo {
+  background-color: v.$amarillo;
+
+  li:nth-child(odd){
+    background-color: darken(v.$amarillo , 15%);
+  }
+}
+.bg-verde {
+  background-color: v.$verde;
+
+  li:nth-child(odd){
+    background-color: darken(v.$verde , 15%);
+  }
+}
